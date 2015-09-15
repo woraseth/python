@@ -1,25 +1,12 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
 
-class MyFrame(tk.Frame):
-    def __init__(self, master=None):
-        tk.Frame.__init__(self, master)
-        self.createWidgets()
-        self.pack()
+def hello():
+   tkm.showinfo("Title", "Hello World")
 
-    def createWidgets(self):
-        self.hi_there = tk.Button(self)
-        self.hi_there["text"] = "Hello World\n(click me)"
-        self.hi_there["command"] = self.say_hi
-        self.hi_there.pack(side="top")
+top = tk.Tk()
 
-        self.QUIT = tk.Button(self, text="QUIT", command=root.destroy)
-        self.QUIT.pack(side="bottom")
+b1 = tk.Button(top, text = "Click Me", command=hello)
+b1.pack()
 
-    def say_hi(self):
-        tkm.showinfo("Title", "Hello World")
-
-root = tk.Tk()
-
-app = MyFrame(master=root)
-app.mainloop()
+top.mainloop()
