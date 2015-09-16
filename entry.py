@@ -1,16 +1,14 @@
-import tkinter as tk
-import tkinter.messagebox as tkm
+from tkinter import *
+from tkinter.messagebox import *
 
 def button_click():
-  tkm.showinfo("Title", entry.get())
+  showinfo('Title', 'Hello, ' + entry.get())
+     
+window = Tk()
 
-window = tk.Tk()
+entry = Entry(window)
+entry.pack(padx=10, pady=5)
 
-entry = tk.Entry(window)
-entry.pack()
-
-button = tk.Button(window, text="Click Me", command=button_click)
-button.pack()
+Button(window, text='Click Me', command=button_click).pack(pady=5)
 
 window.mainloop()
-
