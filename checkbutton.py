@@ -1,22 +1,21 @@
-import tkinter as tk
-import tkinter.messagebox as tkm
+from tkinter import *
+from tkinter.messagebox import *
 
 def button_click():
   if chk_var.get() == 0:
-    tkm.showinfo("Title", entry.get())
+    price = entry.get()
   else:
-    tkm.showinfo("Title", float(entry.get()) * 0.9)
+    price = float(entry.get()) * 0.9
+  showinfo('Title', price)
 
-window = tk.Tk()
+window = Tk()
 
-entry = tk.Entry(window)
+entry = Entry(window)
 entry.pack()
 
-chk_var = tk.IntVar()
-chk = tk.Checkbutton(window, variable=chk_var, text="Discount")
-chk.pack()
+chk_var = IntVar()
+Checkbutton(window, variable=chk_var, text='Discount').pack()
 
-button = tk.Button(window, text="Click Me", command=button_click)
-button.pack()
+Button(window, text='Calculate', command=button_click).pack()
 
 window.mainloop()
