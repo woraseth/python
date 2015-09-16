@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter.messagebox import *
 
 def button_click():
-  print(rdo_var.get())
   price = float(entry.get()) * (100-rdo_var.get()) / 100
   showinfo("Title", price)
 
