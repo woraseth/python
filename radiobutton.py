@@ -1,24 +1,21 @@
-import tkinter as tk
-import tkinter.messagebox as tkm
+from tkinter import *
+from tkinter.messagebox import *
 
 def button_click():
-  if rdo_var.get() == 0:
-    tkm.showinfo("Title", entry.get())
-  elif rdo_var.get() == 1:
-    tkm.showinfo("Title", float(entry.get()) * 0.9)
-  else:
-    tkm.showinfo("Title", float(entry.get()) * 0.8)
+  print(rdo_var.get())
+  price = float(entry.get()) * (100-rdo_var.get()) / 100
+  showinfo("Title", price)
 
-window = tk.Tk()
+window = Tk()
 
-entry = tk.Entry(window)
+entry = Entry(window)
 entry.pack()
 
-rdo_var = tk.IntVar()
-tk.Radiobutton(window, text="0%",  variable=rdo_var, value=0).pack()
-tk.Radiobutton(window, text="10%", variable=rdo_var, value=1).pack()
-tk.Radiobutton(window, text="20%", variable=rdo_var, value=2).pack()
+rdo_var = IntVar()
+Radiobutton(window, text="10%", variable=rdo_var, value=10).pack()
+Radiobutton(window, text="20%", variable=rdo_var, value=20).pack()
+Radiobutton(window, text="25%", variable=rdo_var, value=25).pack()
 
-tk.Button(window, text="Click Me", command=button_click).pack()
+Button(window, text="Calculate", command=button_click).pack()
 
 window.mainloop()
