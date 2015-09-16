@@ -1,20 +1,17 @@
-# used with add.py
-
 from tkinter import *
 
 def button_click():
   import subprocess
-  proc = subprocess.run(['python', 'add.py', e0.get(), e1.get()], stdout=subprocess.PIPE)
+  args = ['python', 'add.py', entry0.get(), entry1.get()]
+  proc = subprocess.run(args, stdout=subprocess.PIPE)
   label.set(proc.stdout.strip())
   
 window = Tk()
 
-e0 = Entry(window)
-e0.insert(END, '3')
-e0.pack()
-e1 = Entry(window)
-e1.insert(END, '5')
-e1.pack()
+entry0 = Entry(window)
+entry0.pack()
+entry1 = Entry(window)
+entry1.pack()
 
 label = StringVar()
 Label(window, textvariable=label).pack()
